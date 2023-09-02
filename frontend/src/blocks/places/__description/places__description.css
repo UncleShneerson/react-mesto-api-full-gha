@@ -1,0 +1,7 @@
+.places__description {
+  display: grid;
+  grid-template-columns: auto 22px;
+  gap: 30px;
+  align-items: center;
+  margin: 22px 20px;
+}

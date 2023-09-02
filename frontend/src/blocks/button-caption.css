@@ -1,0 +1,14 @@
+.button-caption {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 537.5px) {
+  .button-caption {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,14 @@
+.button_style_line-m {
+  width: 100%;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  background-color: transparent;
+  background-size: auto 22px;
+}
+
+@media screen and (max-width: 600px) {
+  .button_style_line-m {
+    background-size: auto 16px;
+  }
+}

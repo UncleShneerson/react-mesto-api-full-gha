@@ -1,0 +1,84 @@
+/* Нормализуем стили */
+@import url(./vendor/normalize.css);
+
+/* Подключаем сторонние шрифты */
+@import url(./vendor/fonts.css);
+
+/* Определяем стили для всей страницы*/
+@import url(./blocks/root/root.css);
+
+/* Блоки на странице */
+@import url(./blocks/section.css);
+@import url(./blocks/content/content.css);
+
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__logo/header__logo.css);
+
+@import url(./blocks/navbar/navbar.css);
+@import url(./blocks/navbar/__text/navbar__text.css);
+@import url(./blocks/navbar/__link/navbar__link.css);
+
+@import url(./blocks/subheader.css);
+
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__avatar-info/profile__avatar-info.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__column-info/profile__column-info.css);
+@import url(./blocks/profile/__name-row/profile__name-row.css);
+@import url(./blocks/profile/__name/profile__name.css);
+@import url(./blocks/profile/__description/profile__description.css);
+
+@import url(./blocks/places/__grid/places__grid.css);
+@import url(./blocks/places/__card/places__card.css);
+@import url(./blocks/places/__delete/places__delete.css);
+@import url(./blocks/places/__delete/_inactive/places__delete_inactive.css);
+@import url(./blocks/places/__image/places__image.css);
+@import url(./blocks/places/__image/_error/places__image_error.css);
+@import url(./blocks/places/__description/places__description.css);
+@import url(./blocks/places/__name/places__name.css);
+@import url(./blocks/places/__like-area/places__like-area.css);
+@import url(./blocks/places/__like/places__like.css);
+@import url(./blocks/places/__like-number/places__like-number.css);
+@import url(./blocks/places/__like/_active/places__like_active.css);
+
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/_funct/popup_funct_image.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__btn-close/popup__btn-close.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+
+@import url(./blocks/form/form.css);
+@import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/form/__input/_theme/form__input_theme_dark.css);
+@import url(./blocks/form/__input/_type/form__input_type_error.css);
+@import url(./blocks/form/__input-error/form__input-error.css);
+@import url(./blocks/form/__input-error/_visible/form__input-error_visible.css);
+@import url(./blocks/form/__field/form__field.css);
+
+@import url(./blocks/gallery/gallery.css);
+@import url(./blocks/gallery/__photo/gallery__photo.css);
+@import url(./blocks/gallery/__caption/gallery__caption.css);
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copy/footer__copy.css);
+@import url(./blocks/footer/__link/footer__link.css);
+
+@import url(./blocks/button/button.css);
+@import url(./blocks/button/_style/button_style_line-xs.css);
+@import url(./blocks/button/_style/button_style_line-m.css);
+@import url(./blocks/button/_style/button_style_fill-m.css);
+@import url(./blocks/button/_style/button_style_fill-m-dark.css);
+@import url(./blocks/button/_func/button_func_add.css);
+@import url(./blocks/button/_func/button_func_edit.css);
+@import url(./blocks/button/_place/button_place_profile.css);
+@import url(./blocks/button/_disabled/button_disabled.css);
+
+@import url(./blocks/button-caption.css);
+@import url(./blocks/__link/button-caption__link.css);
+
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__image/auth__image.css);
+
+
+/* Анимация линк-ховер переиспользуем из предыдущик проектов */
+@import url(./blocks/hover-opacity/hover-opacity.css);

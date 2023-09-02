@@ -1,0 +1,10 @@
+.button_place_profile {
+  width: 150px;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .button_place_profile {
+    width: 100%;
+  }
+}

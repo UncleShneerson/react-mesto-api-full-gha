@@ -1,0 +1,25 @@
+.profile__avatar-info {
+  position: relative;
+  display: flex;
+}
+
+.profile__avatar-info::before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.profile__avatar-info:hover::before {
+  position: absolute;
+  background-color: black;
+  background-image: url(../../../images/pencil.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 26px 26px;
+  cursor: pointer;
+  opacity: 0.8;
+}

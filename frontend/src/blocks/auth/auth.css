@@ -1,0 +1,6 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 22px 0;
+}

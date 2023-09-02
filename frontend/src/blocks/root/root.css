@@ -1,0 +1,21 @@
+.root {
+  /* Размеры страницы */
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* Центруем контент*/
+  margin: 0 auto;
+
+  /* Типографика */
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+
+  /* Визуальные стили */
+  background-color: #000;
+  color: #fff;
+}

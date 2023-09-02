@@ -1,0 +1,10 @@
+.places__delete {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 18px;
+  height: 19px;
+  object-fit: contain;
+  cursor: pointer;
+}

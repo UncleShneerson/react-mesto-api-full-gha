@@ -1,0 +1,16 @@
+.button_style_line-xs {
+  min-width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  background-size: auto 10px;
+
+}
+
+@media screen and (max-width: 600px) {
+  .button_style_line-xs {
+    min-width: 18px;
+    height: 18px;
+    background-size: auto 7.5px;
+  }
+}

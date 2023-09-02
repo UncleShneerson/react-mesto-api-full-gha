@@ -1,0 +1,25 @@
+.form__input {
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  width: 100%;
+  padding: 5px 0px 10px 0px;
+  font-size: 14px;
+  line-height: 1.22;
+}
+
+.form__input:focus {
+  width: calc(100% - 10px);
+  padding: 5px 5px 10px 5px;
+  outline-color: rgba(0,0,0,0.2);
+  outline-width: 1px;
+  outline-style: solid;
+  border-radius: 2px;
+}
+
+
+.form__input::placeholder {
+  color: #c4c4c4;
+}
+

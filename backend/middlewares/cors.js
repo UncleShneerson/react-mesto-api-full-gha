@@ -2,6 +2,7 @@ const allowedCors = [
   'https://uncles.fp.nomoredomainsicu.ru',
   'http://uncles.fp.nomoredomainsicu.ru',
   'localhost:3000',
+  '127.0.0.1:3000',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';

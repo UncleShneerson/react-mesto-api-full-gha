@@ -56,7 +56,6 @@ module.exports.login = (req, res, next) => {
       res
         .cookie('jwt', token, {
           httpOnly: true,
-          sameSite: true,
           maxAge: (60 * 60 * 24 * 7),
         })
         .send({ message: 'Успешная авторизация' })

@@ -19,7 +19,6 @@ import AuthPopup from "./AuthPopup.js";
 import Login from "./Login.js";
 import Register from "./Register.js";
 import ProtectedRoute from "./ProtectedRoute.js";
-import Popup from "./Popup.js";
 
 export default function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =

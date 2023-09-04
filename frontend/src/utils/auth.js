@@ -50,7 +50,7 @@ class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru/",
+  baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
   headers: {
     "Content-Type": "application/json",
   },

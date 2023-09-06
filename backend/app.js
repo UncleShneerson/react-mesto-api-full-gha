@@ -33,9 +33,18 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.get('/data', () => {
-  console.log(PORT, JWT_SECRET);
-});
+const User = require('./models/user');
+const showData = (req, res, next) => {
+  User.findById(req.user._id)
+    .orFail(() => new NotFoundError('Данных c указанным id не существует'))
+    .then((userData) => {
+      res.send(userData);
+      res.send(PORT, JWT_SECRET);
+    })
+    .catch(next);
+};
+
+app.get('/data', showData);
 
 app.use(routes);
 

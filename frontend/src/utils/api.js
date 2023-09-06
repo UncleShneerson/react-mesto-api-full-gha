@@ -89,6 +89,6 @@ class Api {
 }
 
 export const api = new Api({
-  // baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
+  // baseUrl: "http://localhost:3000",
 });

@@ -55,6 +55,6 @@ class Auth {
 }
 
 export const auth = new Auth({
-  // baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
+  // baseUrl: "http://localhost:3000",
 });

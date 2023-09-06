@@ -1,24 +1,27 @@
 class Api {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
-    this._token = headers["authorization"];
   }
 
-  _request(endpoit, options) {
-    return fetch(`${this._baseUrl}${endpoit}`, options).then(this._isItOk);
+  _request(endpoit, options = {}) {
+    return fetch(`${this._baseUrl}${endpoit}`, {
+      ...options,
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      }
+    })
+    .then(this._isItOk);
   }
 
   getInitialCards() {
-    return this._request(`/cards`, {
-      headers: this._headers,
-    });
+    return this._request('/cards');
   }
 
   postCard(newCardData) {
-    return this._request(`/cards`, {
+    return this._request('/cards', {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify({
         name: newCardData.name,
         link: newCardData.link,
@@ -29,7 +32,6 @@ class Api {
   deleteCard(cardId) {
     return this._request(`/cards/${cardId}`, {
       method: "DELETE",
-      headers: this._headers,
     });
   }
 
@@ -44,27 +46,22 @@ class Api {
   _addLike(cardId) {
     return this._request(`/cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this._headers,
     });
   }
 
   _deleteLike(cardId) {
     return this._request(`/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this._headers,
     });
   }
 
   getUserInfo() {
-    return this._request(`/users/me`, {
-      headers: this._headers,
-    });
+    return this._request('/users/me');
   }
 
   editUserInfo(data) {
-    return this._request(`/users/me`, {
+    return this._request('/users/me', {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -74,9 +71,8 @@ class Api {
   }
 
   editUserAvatar(data) {
-    return this._request(`/users/me/avatar`, {
+    return this._request('/users/me/avatar', {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar,
       }),
@@ -93,9 +89,6 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-66",
-  headers: {
-    authorization: "d1a94a05-476b-47ad-bf8b-c677840ac343",
-    "Content-Type": "application/json",
-  },
+  // baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
+  baseUrl: "http://localhost:3000",
 });

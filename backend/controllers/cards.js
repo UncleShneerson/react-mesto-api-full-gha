@@ -8,7 +8,6 @@ const Card = require('../models/card');
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .populate('owner')
     .then((cards) => res.send(cards))
     .catch(next);
 };
@@ -36,9 +35,7 @@ module.exports.deleteCardById = (req, res, next) => {
       }
       Card.findByIdAndRemove(_id)
         .orFail(() => new NotFoundError('Данных c указанным id не существует'))
-        .then((cardData) => {
-          res.send(cardData);
-        })
+        .then((cardData) => res.send(cardData))
         .catch(next);
     })
     .catch(next);

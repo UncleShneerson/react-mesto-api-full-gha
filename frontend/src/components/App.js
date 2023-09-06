@@ -45,36 +45,34 @@ export default function App() {
 
   // Проверяем токен
   React.useEffect(() => {
-    if (localStorage.getItem("token")) {
-      auth
-        .checkToken(localStorage.getItem("token"))
-        .then((res) => {
-          if (res) {
-            setCurrentUser((prevState) => ({
-              ...prevState,
-              loggedIn: true,
-              email: res.data.email,
-            }));
-            navigate("/", { replace: true });
-          }
-        })
-        .catch(console.error);
-    } else {
-      return;
-    }
-  }, []);
+    auth
+      .checkToken()
+      .then((userData) => {
+        if (userData) {
+          const { email } = userData;
+          setCurrentUser((prevState) => ({
+            ...prevState,
+            loggedIn: true,
+            email: email,
+          }));
+          navigate("/", { replace: true });
+        }
+      })
+      .catch(console.error);
+    }, []);
 
-  // Запрашиваем данные пользователя и карточек
+  // // Запрашиваем данные пользователя и карточек
   React.useEffect(() => {
     if (currentUser.loggedIn) {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
         .then(([info, initialCards]) => {
+          const {about, avatar, name, _id} = info;
           setCurrentUser((prevState) => ({
             ...prevState,
-            name: info.name,
-            about: info.about,
-            avatar: info.avatar,
-            _id: info._id,
+            name: name,
+            about: about,
+            avatar: avatar,
+            _id: _id,
           }));
           setCards(initialCards);
         })
@@ -85,7 +83,6 @@ export default function App() {
   }, [currentUser.loggedIn]);
 
   // Сабмиты
-
   function handleUpdateUser(userData) {
     setLoadingText("Подождите...");
 
@@ -237,11 +234,14 @@ export default function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
+    const isLiked = card.likes.some((i) => {
+      return i === currentUser._id;
+    });
+    console.log(isLiked);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
+        console.log(newCard);
         setCards((state) =>
           state.map((c) => (c._id === card._id ? newCard : c))
         );
@@ -250,7 +250,7 @@ export default function App() {
   }
 
   function handleSignOut() {
-    localStorage.removeItem("token");
+    auth.signOut();
     navigate("/sign-in");
     setCurrentUser((prevState) => ({
       ...prevState,

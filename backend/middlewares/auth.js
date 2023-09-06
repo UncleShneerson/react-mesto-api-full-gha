@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../utils/config');
 const AuthError = require('../Errors/AuthError');
 
 function auth(req, res, next) {
@@ -8,7 +9,7 @@ function auth(req, res, next) {
     throw new AuthError('Токен не найден');
   } else {
     try {
-      payload = jwt.verify(token, 'secret-phrase');
+      payload = jwt.verify(token, JWT_SECRET);
     } catch (err) {
       throw new AuthError('Необходима авторизацияя');
     }

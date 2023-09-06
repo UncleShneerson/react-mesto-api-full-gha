@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../utils/config');
 
 const ValidationError = require('../Errors/ValidationError');
 const NotFoundError = require('../Errors/NotFoundError');
@@ -52,7 +53,7 @@ module.exports.login = (req, res, next) => {
   } = req.body;
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'secret-phrase', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
       res
         .cookie('jwt', token, {
           httpOnly: true,

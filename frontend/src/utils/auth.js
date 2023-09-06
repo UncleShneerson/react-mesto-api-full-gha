@@ -1,17 +1,23 @@
 class Auth {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
   }
 
-  _request(endpoit, options) {
-    return fetch(`${this._baseUrl}${endpoit}`, options).then(this._isItOk);
+  _request(endpoit, options = {}) {
+    return fetch(`${this._baseUrl}${endpoit}`, {
+      ...options,
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      }
+    })
+    .then(this._isItOk);
   }
 
   signUp(userData) {
     return this._request(`/signup`, {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify({
         password: userData.password,
         email: userData.email,
@@ -22,7 +28,6 @@ class Auth {
   signIn(userData) {
     return this._request(`/signin`, {
       method: "POST",
-      headers: this._headers,
       body: JSON.stringify({
         password: userData.password,
         email: userData.email,
@@ -30,13 +35,13 @@ class Auth {
     });
   }
 
-  checkToken(token) {
+  signOut() {
+    return this._request('/signout');
+  }
+
+  checkToken() {
     return this._request(`/users/me`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
     });
   }
 
@@ -50,8 +55,6 @@ class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
-  headers: {
-    "Content-Type": "application/json",
-  },
+  // baseUrl: "https://api.uncles.fp.nomoredomainsicu.ru",
+  baseUrl: "http://localhost:3000",
 });

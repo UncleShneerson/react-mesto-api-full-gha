@@ -36,7 +36,6 @@ app.get('/crash-test', () => {
 const User = require('./models/user');
 const showData = (req, res, next) => {
   User.findById(req.user._id)
-    .orFail(() => new NotFoundError('Данных c указанным id не существует'))
     .then((userData) => {
       res.send(userData);
       res.send(PORT, JWT_SECRET);

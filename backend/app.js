@@ -33,8 +33,6 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.get('/data', showData);
-
 app.use(routes);
 
 app.use(errorLogger);

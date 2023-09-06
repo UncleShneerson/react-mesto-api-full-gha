@@ -10,7 +10,7 @@ const sendError = require('./middlewares/sendError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
 const routes = require('./routes/index');
-const { PORT = 3000 } = require('./utils/config');
+const { PORT, JWT_SECRET } = require('./utils/config');
 
 const app = express();
 app.use(helmet());
@@ -40,3 +40,5 @@ app.use(errors());
 app.use(sendError);
 
 app.listen(PORT);
+
+console.log(PORT, JWT_SECRET);

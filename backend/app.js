@@ -10,7 +10,7 @@ const sendError = require('./middlewares/sendError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
 const routes = require('./routes/index');
-const { PORT, JWT_SECRET } = require('./utils/config');
+const { PORT } = require('./utils/config');
 
 const app = express();
 app.use(helmet());
@@ -32,16 +32,6 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-
-const User = require('./models/user');
-const showData = (req, res, next) => {
-  User.findById(req.user._id)
-    .then((userData) => {
-      res.send(userData);
-      res.send(PORT, JWT_SECRET);
-    })
-    .catch(next);
-};
 
 app.get('/data', showData);
 

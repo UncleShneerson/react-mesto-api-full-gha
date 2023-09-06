@@ -14,8 +14,8 @@
 
 Адрес репозитория: [**https://github.com/UncleShneerson/react-mesto-api-full-gha**](https://github.com/UncleShneerson/react-mesto-api-full-gha).
 
-IP-адрес 130.193.36.223.
+IP-адрес 130.193.36.223
 
-Frontend [**https://uncles.fp.nomoredomainsicu.ru/**](https://uncles.fp.nomoredomainsicu.ru/).
+Frontend [**https://uncles.fp.nomoredomainsicu.ru/**](https://uncles.fp.nomoredomainsicu.ru/)
 
-Backend [**https://api.uncles.fp.nomoredomainsicu.ru/**](https://api.uncles.fp.nomoredomainsicu.ru/).
+Backend [**https://api.uncles.fp.nomoredomainsicu.ru/**](https://api.uncles.fp.nomoredomainsicu.ru/)
